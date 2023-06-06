@@ -20,14 +20,14 @@
                     <div class="px-5 mt-3">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="username"><i class="bi bi-person"></i></span>
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="username">
+                            <input type="text" value="administrator" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="username">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="password"><i class="bi bi-key"></i></span>
-                            <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password">
+                            <input type="password" value="administrator" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password">
                         </div>
                         <div class="mt-4">
-                            <a href="{{ route('dashboard') }}" class="btn btn-primary btn-lg w-100">Log In</a>
+                            <a href="{{ route('exercises') }}" class="btn btn-primary btn-lg w-100">Log In</a>
                         </div>
                     </div>
                 </div>

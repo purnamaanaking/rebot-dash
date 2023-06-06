@@ -4,85 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard | Re-Bot Dashboard</title>
+    <title>RB001-001 | Re-Bot Dashboard</title>
     @vite('resources/sass/app.scss')
 </head>
 <body class="bg-light">
-    <nav class="navbar fixed-top navbar-expand-lg bg-primary" data-bs-theme="dark">
-        <div class="container py-2 px-4">
-            <a href="#" class="navbar-brand mb-0">
-                <i class="bi bi-display me-2"></i> Re-Bot Dashboard
-            </a>
-
-            <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="offcanvas offcanvas-end bg-primary" id="offcanvasNavbar">
-                <div class="offcanvas-header pb-0 px-4">
-                    <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">Re-Bot Dashboard</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-
-                <div class="offcanvas-body pt-0 px-4">
-                    <hr class="d-lg-none text-white-50">
-
-                    <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
-                        <li class="nav-item col-12 col-lg-auto">
-                            <a href="#" class="nav-link active">
-                                <i class="bi bi-whatsapp"></i><small class="ms-2">Our Contact: 0812-3456-7891</small>
-                            </a>
-                        </li>
-                        <li class="nav-item col-12 col-lg-auto">
-                            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
-                            <hr class="d-lg-none my-2 text-white-50">
-                        </li>
-                        <li class="nav-item">
-                            <div class="dropdown" data-bs-theme="light">
-                                <button type="button" class="btn nav-link text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-person-circle me-2"></i><span class="d-lg-none">Admin Menu</span>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    <li>
-                                        <button class="dropdown-item" type="button">
-                                            <small><i class="bi bi-person-badge me-2"></i>Profile</small>
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="dropdown-item" type="button">
-                                            <small><i class="bi bi-gear me-2"></i>Settings</small>
-                                        </button>
-                                    </li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li>
-                                        <a href="{{ route('login') }}" class="dropdown-item" type="button">
-                                            <small><i class="bi bi-lock-fill me-2"></i></i>Log Out</small>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
+    @include('nav')
 
     <div class="mt-5">
         &nbsp;
     </div>
 
     <div class="container py-3 px-4 mt-3">
+        <div class="row mb-0">
+            <div class="col-lg-9 col-xl-10">
+                <div class="h4">RB001-001</div>
+                <div>6 June 2023 10:02:00 - 6 June 2023 10:56:00</div>
+            </div>
+            <div class="col-lg-3 col-xl-2">
+                <div class="d-grid gap-2 mt-3">
+                    <a href="{{ route('exercises') }}" class="btn btn-dark">
+                        <i class="bi bi-chevron-left"></i> Back
+                    </a>
+                </div>
+            </div>
+        </div>
+        <hr>
         <div class="row">
             <div class="col-xl-6">
-                <div class="bg-white p-4 rounded shadow-sm mb-4">
+                <div class="bg-primary p-4 rounded shadow-sm mb-4">
                     <div class="row">
                         <div class="col">
-                            <div class="fs-6 text-secondary">Durasi Latihan</div>
-                            <div class="fs-4">01 <small>jam</small> 54 <small>menit</small> 34 <small>detik</small></div>
+                            <div class="fs-6 text-white">Durasi Latihan</div>
+                            <div class="fs-4 text-white blink-me">01 <small>jam</small> 54 <small>menit</small> 34 <small>detik</small></div>
                         </div>
                         <div class="col-auto">
-                            <i class="bi bi-stopwatch fs-1"></i>
+                            <i class="bi bi-stopwatch fs-1 text-white"></i>
                         </div>
                     </div>
                 </div>
@@ -203,7 +159,12 @@
                 </div>
             </div>
         </div>
+
+        <div class="mt-5">
+            &nbsp;
+        </div>
     </div>
+
     @vite('resources/js/app.js')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -211,11 +172,13 @@
         new Chart(pChart, {
                 type: 'line',
                 data: {
-                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    labels: ['', '', '', '', '', ''],
                 datasets: [{
-                    label: 'Nilai p',
+                    label: 'Nilai P',
                     data: [12, 19, 3, 5, 2, 3],
                     borderWidth: 1,
+                    backgroundColor: '#0E6EFD',
+                    borderColor: '#0E6EFD',
                 }]
             },
             options: {
@@ -231,11 +194,13 @@
         new Chart(voutChart, {
                 type: 'line',
                 data: {
-                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    labels: ['', '', '', '', '', ''],
                 datasets: [{
-                    label: 'Nilai vout',
-                    data: [12, 19, 3, 5, 2, 3],
-                    borderWidth: 1
+                    label: 'Nilai VOUT',
+                    data: [5, 2, 3, 12, 19, 3],
+                    borderWidth: 1,
+                    backgroundColor: '#0E6EFD',
+                    borderColor: '#0E6EFD',
                 }]
             },
             options: {
