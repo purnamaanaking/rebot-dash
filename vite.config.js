@@ -6,11 +6,11 @@ export default defineConfig(({ mode }) => {
     return  {
         server: {
             hmr: {
-            host: env.HOMESTEAD_HOST,
+                host: env.HOMESTEAD_HOST,
             },
             host: env.HOMESTEAD_HOST,
             watch: {
-            usePolling: true,
+                usePolling: true,
             },
         },
         plugins: [
