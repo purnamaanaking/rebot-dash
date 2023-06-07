@@ -27,7 +27,7 @@
                             <input type="password" value="administrator" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password">
                         </div>
                         <div class="mt-4">
-                            <a href="{{ route('exercises') }}" class="btn btn-primary btn-lg w-100">Log In</a>
+                            <a href="{{ route('exercises.index') }}" class="btn btn-primary btn-lg w-100">Log In</a>
                         </div>
                     </div>
                 </div>

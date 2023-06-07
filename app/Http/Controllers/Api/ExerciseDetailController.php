@@ -8,7 +8,7 @@ use App\Models\ExerciseDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class ExerciseDetaillController extends Controller
+class ExerciseDetailController extends Controller
 {
     public function index()
     {

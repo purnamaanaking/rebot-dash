@@ -20,34 +20,40 @@
                 <div class="bg-white p-4 rounded shadow-sm mb-4">
                     <div><span class="h4">Your Exercise Data</span> <small>RB001</small></div>
                     <hr>
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-hover table-striped mb-0 bg-white">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">No</th>
-                                    <th>Exercise ID</th>
-                                    <th>Start Time</th>
-                                    <th>End Time</th>
-                                    <th class="text-center">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @for ($i=1; $i<=10; $i++)
+                    @if (count($exercises) !== 0)
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped mb-0 bg-white">
+                                <thead>
                                     <tr>
-                                        <td class="text-center">{{ $i }}.</td>
-                                        <td>RB001-00{{ $i }}</td>
-                                        <td>6 June 2023 10:02:00</td>
-                                        <td>6 June 2023 10:56:00</td>
-                                        <td class="text-center">
-                                            <a href="{{ route('dashboard') }}" class="btn btn-primary btn-sm">
-                                                <i class="bi bi-eye me-2"></i>Show
-                                            </a>
-                                        </td>
+                                        <th class="text-center">No</th>
+                                        <th>Exercise Code</th>
+                                        <th>Start Time</th>
+                                        <th>End Time</th>
+                                        <th class="text-center">Action</th>
                                     </tr>
-                                @endfor
-                            </tbody>
-                        </table>
-                    </div>
+                                </thead>
+                                <tbody>
+                                    @foreach ($exercises as $index => $exercise)
+                                        <tr>
+                                            <td class="text-center">{{ $index + 1 }}.</td>
+                                            <td>{{ $exercise->code }}</td>
+                                            <td>{{ date('d M Y H:i:s', strtotime($exercise->start_time)) }}</td>
+                                            <td>{{ date('d M Y H:i:s', strtotime($exercise->end_time)) }}</td>
+                                            <td class="text-center">
+                                                <a href="{{ route('exerciseDetails.show', [ 'exercise_id' => $exercise->id ]) }}" class="btn btn-primary btn-sm">
+                                                    <i class="bi bi-eye me-2"></i>Show
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    @else
+                        <div class="text-center">
+                            <img width="40%" src="{{ Vite::asset('resources/images/no-data.jpg') }}" alt="No Data Image">
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

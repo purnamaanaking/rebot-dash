@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ExerciseDetailController;
+use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,10 +24,8 @@ Route::get('/login', function(){
     return view('login');
 })->name('login');
 
-Route::get('/exercises', function(){
-    return view('exercises');
-})->name('exercises');
+Route::get('/exercises', [ExerciseController::class, 'index'])
+    ->name('exercises.index');
 
-Route::get('/dashboard', function(){
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/exercise-details/{exercise_id}', [ExerciseDetailController::class, 'show'])
+    ->name('exerciseDetails.show');
