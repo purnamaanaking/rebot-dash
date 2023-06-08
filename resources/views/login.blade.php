@@ -8,10 +8,10 @@
     @vite('resources/sass/app.scss')
 </head>
 <body class="bg-white">
-    <div class="container m-auto">
-        <div class="d-flex justify-content-center">
+    <div class="container">
+        <div class="">
             <form>
-                <div class="py-5 text-center" style="width: 600px;">
+                <div class="m-auto py-5 text-center" style="max-width: 600px;">
                     <div>
                         <img class="img-fluid" src="{{ Vite::asset('resources/images/login.png') }}" alt="Login Image">
                         <h1 class="">Re-Bot Dashboard</h1>

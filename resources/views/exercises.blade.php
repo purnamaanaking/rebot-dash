@@ -26,10 +26,10 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">No</th>
-                                        <th>Exercise Code</th>
-                                        <th>Start Time</th>
-                                        <th>End Time</th>
-                                        <th class="text-center">Actions</th>
+                                        <th style="min-width: 150px;">Exercise Code</th>
+                                        <th style="min-width: 200px;">Start Time</th>
+                                        <th style="min-width: 200px;">End Time</th>
+                                        <th style="min-width: 150px;" class="text-center">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
