@@ -24,8 +24,7 @@ Route::get('/login', function(){
     return view('login');
 })->name('login');
 
-Route::get('/exercises', [ExerciseController::class, 'index'])
-    ->name('exercises.index');
+Route::get('/exercises', [ExerciseController::class, 'index'])->name('exercises.index');
+Route::delete('/exercises/{exercise}', [ExerciseController::class, 'destroy'])->name('exercises.destroy');
 
-Route::get('/exercise-details/{exercise_id}', [ExerciseDetailController::class, 'show'])
-    ->name('exerciseDetails.show');
+Route::get('/exercise-details/{exerciseId}', [ExerciseDetailController::class, 'show'])->name('exerciseDetails.show');

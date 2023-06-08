@@ -29,22 +29,30 @@
                                         <th>Exercise Code</th>
                                         <th>Start Time</th>
                                         <th>End Time</th>
-                                        <th class="text-center">Action</th>
+                                        <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($exercises as $index => $exercise)
+                                    @php $no = 1; @endphp
+                                    @foreach ($exercises as $exercise)
                                         <tr>
-                                            <td class="text-center">{{ $index + 1 }}.</td>
+                                            <td class="text-center">{{ $no }}.</td>
                                             <td>{{ $exercise->code }}</td>
-                                            <td>{{ date('d M Y H:i:s', strtotime($exercise->start_time)) }}</td>
-                                            <td>{{ date('d M Y H:i:s', strtotime($exercise->end_time)) }}</td>
-                                            <td class="text-center">
-                                                <a href="{{ route('exerciseDetails.show', [ 'exercise_id' => $exercise->id ]) }}" class="btn btn-primary btn-sm">
-                                                    <i class="bi bi-eye me-2"></i>Show
-                                                </a>
+                                            <td>{{ $exercise->start_time ? date('d M Y H:i:s', strtotime($exercise->start_time)) : '-' }}</td>
+                                            <td>{{ $exercise->end_time ? date('d M Y H:i:s', strtotime($exercise->end_time)) : '-' }}</td>
+                                            <td>
+                                                <div class="d-flex justify-content-center">
+                                                    <a href="{{ route('exerciseDetails.show', [ 'exerciseId' => $exercise->id ]) }}" class="btn btn-primary btn-sm me-2">
+                                                        <i class="bi bi-eye me-2"></i>Show
+                                                    </a>
+                                                    <form action="{{ route('exercises.destroy', ['exercise' => $exercise->id]) }}" method="POST">
+                                                        @csrf @method('delete')
+                                                        <button type="submit" class="btn btn-outline-dark btn-sm me-2"><i class="bi-trash"></i></button>
+                                                    </form>
+                                                </div>
                                             </td>
                                         </tr>
+                                        @php $no++; @endphp
                                     @endforeach
                                 </tbody>
                             </table>

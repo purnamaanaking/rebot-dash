@@ -18,7 +18,7 @@
         <div class="row mb-0">
             <div class="col-lg-9 col-xl-10">
                 <div class="h4">{{ $data['exercise']->code }}</div>
-                <div>{{ date('d M Y H:i:s', strtotime($data['exercise']->start_time)) }} - {{ date('d M Y H:i:s', strtotime($data['exercise']->end_time)) }}</div>
+                <div>{{ date('d M Y H:i:s', strtotime($data['exercise']->start_time)) }} to {{ $data['exercise']->end_time ? date('d M Y H:i:s', strtotime($data['exercise']->end_time)) : '-' }}</div>
             </div>
             <div class="col-lg-3 col-xl-2">
                 <div class="d-grid gap-2 mt-3">

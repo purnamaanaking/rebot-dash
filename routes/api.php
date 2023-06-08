@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\api\ExerciseController;
+use App\Http\Controllers\Api\ExerciseController;
 use App\Http\Controllers\Api\ExerciseDetailController;
+use App\Models\Exercise;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

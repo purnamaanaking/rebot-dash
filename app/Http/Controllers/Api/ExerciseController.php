@@ -21,8 +21,8 @@ class ExerciseController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'code' => 'required',
-            'start_time' => 'required|date_format:Y-m-d H:i:s',
-            'end_time' => 'required|date_format:Y-m-d H:i:s',
+            'start_time' => 'date_format:Y-m-d H:i:s',
+            'end_time' => 'date_format:Y-m-d H:i:s',
         ]);
 
         if ($validator->fails()) {
@@ -43,9 +43,25 @@ class ExerciseController extends Controller
         //
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, Exercise $exercise)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'code' => 'required',
+            'start_time' => 'date_format:Y-m-d H:i:s',
+            'end_time' => 'date_format:Y-m-d H:i:s',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
+        if ($request->code) $exercise->code = $request->code;
+        if ($request->start_time) $exercise->start_time = $request->start_time;
+        if ($request->end_time) $exercise->end_time = $request->end_time;
+
+        $exercise->save();
+
+        return new ExerciseResource(true, 'Exercise Data Updated Successfully', $exercise);
     }
 
     public function destroy(string $id)
