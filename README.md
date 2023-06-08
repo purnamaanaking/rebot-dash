@@ -1,66 +1,159 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Re-Bot Dashboard
 
-## About Laravel
+Dashboard of  Rehabilitation Robot
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Screenshots
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+![App Screenshot](https://awesomescreenshot.s3.amazonaws.com/image/756918/40563469-88a36a30de8eaa4901a8d2272d01c270.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJSCJQ2NM3XLFPVKA%2F20230608%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230608T024020Z&X-Amz-Expires=28800&X-Amz-SignedHeaders=host&X-Amz-Signature=e7fb33bc1e7c3c9c50193a9838822a91a2ac1a3cc1a283ea895ce17cf217da18)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## API Reference
 
-## Laravel Sponsors
+### 1. Add Exercise
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```http
+  POST /api/exercises
+```
 
-### Premium Partners
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `code` | `string` | **Required**. Exercise Code |
+| `start_time` | `dateTime ` | **Nullable**. Example: `2023-06-07 10:28:00` |
+| `end_time` | `dateTime ` | **Nullable**. Example: `2023-06-07 10:30:00` |
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+#### Body (JSON Content)
 
-## Contributing
+```
+{
+  "code": "RB001-004",
+  "start_time": "2023-06-07 10:28:00"
+}
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### Response 
 
-## Code of Conduct
+```
+{
+  "success": true,
+  "message": "Exercise Data Added Successfully",
+  "data": {
+    "code": "RB001-004",
+    "start_time": "2023-06-07 10:28:00",
+    "end_time": null,
+    "updated_at": "2023-06-08T01:58:54.000000Z",
+    "created_at": "2023-06-08T01:58:54.000000Z",
+    "id": 4
+  }
+}
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 2. Add Exercise Detail
 
-## Security Vulnerabilities
+```http
+  POST /api/exercise-details
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `exercise_id` | `integer` | **Required**. Id of Exercise |
+| `duration` | `decimal` | **Required**. Exercise Suration |
+| `position` | `decimal` | **Required**. Ankle Position (P Value) |
+| `vout` | `decimal` | **Required**. Ankle Angular Velocity (VOUT Value) |
+| `dorsimax` | `decimal` | **Required**. Maximum Dorsiflexion |
+| `plantarmax` | `decimal` | **Required**. Maximum Plantarflexion |
+| `rom` | `decimal` | **Required**. Range of Motion |
+| `percentage` | `decimal` | **Required**. Correct Gait Sequence Percentage |
+| `step_amount` | `decimal` | **Required**. Number of Steps |
+| `step_duration` | `decimal` | **Required**. Correct Step Duration |
+| `step_per_second` | `decimal` | **Required**. Steps Per Second |
 
-## License
+#### Body (JSON Content)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+{
+  "exercise_id": 1,
+  "duration": 120,
+  "position": 0.04,
+  "vout": -0.87,
+  "dorsimax": 0.36,
+  "plantarmax": -0.01,
+  "rom": 0.37,
+  "percentage": 95,
+  "step_amount": 60,
+  "step_duration": 1.2,
+  "step_per_second": 0.83
+}
+```
+
+#### Response 
+
+```
+{
+  "success": true,
+  "message": "Exercise details data added successfully",
+  "data": {
+    "exercise_id": 1,
+    "duration": 120,
+    "position": 0.04,
+    "vout": -0.87,
+    "dorsimax": 0.36,
+    "plantarmax": -0.01,
+    "rom": 0.37,
+    "percentage": 95,
+    "step_amount": 60,
+    "step_duration": 1.2,
+    "step_per_second": 0.83,
+    "updated_at": "2023-06-08T02:20:12.000000Z",
+    "created_at": "2023-06-08T02:20:12.000000Z",
+    "id": 1
+  }
+}
+```
+
+### 3. Update Exercise
+
+```http
+  PUT /api/exercises/{exercise_id}
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `code` | `string` | **Required**. Exercise Code |
+| `start_time` | `dateTime ` | **Nullable**. Example: `2023-06-07 10:28:00` |
+| `end_time` | `dateTime ` | **Nullable**. Example: `2023-06-07 10:30:00` |
+
+#### Body (JSON Content)
+
+```
+{
+  "code": "RB001-001",
+  "end_time": "2023-06-07 10:30:00"
+}
+```
+
+#### Response 
+
+```
+{
+  "success": true,
+  "message": "Exercise Data Updated Successfully",
+  "data": {
+    "id": 1,
+    "code": "RB001-001",
+    "start_time": "2023-06-07 10:28:00",
+    "end_time": "2023-06-07 10:30:00",
+    "created_at": "2023-06-08T01:50:01.000000Z",
+    "updated_at": "2023-06-08T01:50:29.000000Z"
+  }
+}
+```
+
+
+## Authors
+
+- [@purnamaanaking](https://github.com/purnamaanaking)
+
