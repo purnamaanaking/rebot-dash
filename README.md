@@ -117,7 +117,7 @@ Dashboard of  Rehabilitation Robot
 ### 3. Update Exercise
 
 ```http
-  PUT /api/exercises/{exercise_id}
+  POST /api/exercises/{exercise_id}
 ```
 
 | Parameter | Type     | Description                |
@@ -131,7 +131,8 @@ Dashboard of  Rehabilitation Robot
 ```
 {
   "code": "RB001-001",
-  "end_time": "2023-06-07 10:30:00"
+  "end_time": "2023-06-07 10:30:00",
+  "_method": "PUT"
 }
 ```
 
