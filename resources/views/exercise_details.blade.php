@@ -184,11 +184,14 @@
                 data: {
                     labels: labels,
                 datasets: [{
-                    label: 'Nilai P',
+                    label: 'P Value',
                     data: pData,
                     borderWidth: 1,
                     backgroundColor: color,
                     borderColor: color,
+                    pointBorderWidth: 0,
+                    tension: 0.5,
+                    pointStyle: false,
                 }]
             },
             options: {
@@ -207,11 +210,14 @@
                 data: {
                     labels: labels,
                 datasets: [{
-                    label: 'Nilai VOUT',
+                    label: 'VOUT Value',
                     data: voutData,
                     borderWidth: 1,
                     backgroundColor: color,
                     borderColor: color,
+                    pointBorderWidth: 0,
+                    tension: 0.5,
+                    pointStyle: false,
                 }]
             },
             options: {
