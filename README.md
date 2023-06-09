@@ -75,17 +75,34 @@ Dashboard of  Rehabilitation Robot
 
 ```
 {
-  "exercise_id": 1,
-  "duration": 120,
-  "position": 0.04,
-  "vout": -0.87,
-  "dorsimax": 0.36,
-  "plantarmax": -0.01,
-  "rom": 0.37,
-  "percentage": 95,
-  "step_amount": 60,
-  "step_duration": 1.2,
-  "step_per_second": 0.83
+  "data": [
+    {
+      "exercise_id": 1,
+      "duration": 120,
+      "position": 0.04,
+      "vout": -0.87,
+      "dorsimax": 0.36,
+      "plantarmax": -0.01,
+      "rom": 0.37,
+      "percentage": 95,
+      "step_amount": 60,
+      "step_duration": 1.2,
+      "step_per_second": 0.83
+    },
+    {
+      "exercise_id": 1,
+      "duration": 120,
+      "position": 0.04,
+      "vout": -0.87,
+      "dorsimax": 0.36,
+      "plantarmax": -0.01,
+      "rom": 0.37,
+      "percentage": 95,
+      "step_amount": 60,
+      "step_duration": 1.2,
+      "step_per_second": 0.83
+    }
+  ]
 }
 ```
 
@@ -125,6 +142,7 @@ Dashboard of  Rehabilitation Robot
 | `code` | `string` | **Required**. Exercise Code |
 | `start_time` | `dateTime ` | **Nullable**. Example: `2023-06-07 10:28:00` |
 | `end_time` | `dateTime ` | **Nullable**. Example: `2023-06-07 10:30:00` |
+| `_method` | `string ` | **Required**. Fill with: `PUT` |
 
 #### Body (JSON Content)
 
