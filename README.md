@@ -60,7 +60,7 @@ Dashboard of  Rehabilitation Robot
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `exercise_id` | `integer` | **Required**. Id of Exercise |
-| `duration` | `decimal` | **Required**. Exercise Suration |
+| `duration` | `decimal` | **Required**. Exercise Duration |
 | `position` | `decimal` | **Required**. Ankle Position (P Value) |
 | `vout` | `decimal` | **Required**. Ankle Angular Velocity (VOUT Value) |
 | `dorsimax` | `decimal` | **Required**. Maximum Dorsiflexion |
