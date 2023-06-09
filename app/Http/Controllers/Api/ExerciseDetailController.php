@@ -19,39 +19,43 @@ class ExerciseDetailController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'exercise_id' => 'required',
-            'duration' => 'required',
-            'position' => 'required',
-            'vout' => 'required',
-            'dorsimax' => 'required',
-            'plantarmax' => 'required',
-            'rom' => 'required',
-            'percentage' => 'required',
-            'step_amount' => 'required',
-            'step_duration' => 'required',
-            'step_per_second' => 'required',
-        ]);
+        $datas = $request->data;
 
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
+        foreach ($datas as $data) {
+            $validator = Validator::make($data, [
+                'exercise_id' => 'required',
+                'duration' => 'required',
+                'position' => 'required',
+                'vout' => 'required',
+                'dorsimax' => 'required',
+                'plantarmax' => 'required',
+                'rom' => 'required',
+                'percentage' => 'required',
+                'step_amount' => 'required',
+                'step_duration' => 'required',
+                'step_per_second' => 'required',
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json($validator->errors(), 422);
+            }
+
+            ExerciseDetail::create([
+                'exercise_id' => $data['exercise_id'],
+                'duration' => $data['duration'],
+                'position' => $data['position'],
+                'vout' => $data['vout'],
+                'dorsimax' => $data['dorsimax'],
+                'plantarmax' => $data['plantarmax'],
+                'rom' => $data['rom'],
+                'percentage' => $data['percentage'],
+                'step_amount' => $data['step_amount'],
+                'step_duration' => $data['step_duration'],
+                'step_per_second' => $data['step_per_second'],
+            ]);
         }
 
-        $exerciseDetail = ExerciseDetail::create([
-            'exercise_id' => $request->exercise_id,
-            'duration' => $request->duration,
-            'position' => $request->position,
-            'vout' => $request->vout,
-            'dorsimax' => $request->dorsimax,
-            'plantarmax' => $request->plantarmax,
-            'rom' => $request->rom,
-            'percentage' => $request->percentage,
-            'step_amount' => $request->step_amount,
-            'step_duration' => $request->step_duration,
-            'step_per_second' => $request->step_per_second,
-        ]);
-
-        return new ExerciseDetailResource(true, 'Exercise details data added successfully', $exerciseDetail);
+        return new ExerciseDetailResource(true, 'Exercise details data added successfully', $datas);
     }
 
     public function show(string $id)
