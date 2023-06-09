@@ -8,7 +8,7 @@ Dashboard of  Rehabilitation Robot
 
 ## Screenshots
 
-![App Screenshot](https://awesomescreenshot.s3.amazonaws.com/image/756918/40563469-88a36a30de8eaa4901a8d2272d01c270.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJSCJQ2NM3XLFPVKA%2F20230608%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230608T024020Z&X-Amz-Expires=28800&X-Amz-SignedHeaders=host&X-Amz-Signature=e7fb33bc1e7c3c9c50193a9838822a91a2ac1a3cc1a283ea895ce17cf217da18)
+![App Screenshot](https://awesomescreenshot.s3.amazonaws.com/image/756918/40599055-36d66507d69971e01cb213ba873af2c2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJSCJQ2NM3XLFPVKA%2F20230609%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230609T021129Z&X-Amz-Expires=28800&X-Amz-SignedHeaders=host&X-Amz-Signature=2536dee9baf5e2cc322c28c74f3780a679f162838e7e23607629fdbe68db2d68)
 
 
 ## API Reference
