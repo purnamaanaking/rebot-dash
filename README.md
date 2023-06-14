@@ -29,7 +29,7 @@ Dashboard of  Rehabilitation Robot
 
 ```
 {
-  "code": "RB001-004",
+  "code": "RB001-001",
   "start_time": "2023-06-07 10:28:00"
 }
 ```
@@ -41,12 +41,12 @@ Dashboard of  Rehabilitation Robot
   "success": true,
   "message": "Exercise Data Added Successfully",
   "data": {
-    "code": "RB001-004",
+    "code": "RB001-001",
     "start_time": "2023-06-07 10:28:00",
     "end_time": null,
     "updated_at": "2023-06-08T01:58:54.000000Z",
     "created_at": "2023-06-08T01:58:54.000000Z",
-    "id": 4
+    "id": 1
   }
 }
 ```
