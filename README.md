@@ -8,7 +8,8 @@ Dashboard of  Rehabilitation Robot
 
 ## Screenshots
 
-![App Screenshot](https://awesomescreenshot.s3.amazonaws.com/image/756918/40599055-36d66507d69971e01cb213ba873af2c2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJSCJQ2NM3XLFPVKA%2F20230609%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230609T021129Z&X-Amz-Expires=28800&X-Amz-SignedHeaders=host&X-Amz-Signature=2536dee9baf5e2cc322c28c74f3780a679f162838e7e23607629fdbe68db2d68)
+<img width="1044" alt="Screen Shot 2023-07-26 at 09 30 11" src="https://github.com/purnamaanaking/rebot-dash/assets/1115211/9cec948b-2ba0-4719-9026-101a16396ba2">
+
 
 
 ## API Reference
@@ -27,26 +28,26 @@ Dashboard of  Rehabilitation Robot
 
 #### Body (JSON Content)
 
-```
+```json
 {
-  "code": "RB001-004",
+  "code": "RB001-001",
   "start_time": "2023-06-07 10:28:00"
 }
 ```
 
 #### Response 
 
-```
+```json
 {
   "success": true,
   "message": "Exercise Data Added Successfully",
   "data": {
-    "code": "RB001-004",
+    "code": "RB001-001",
     "start_time": "2023-06-07 10:28:00",
     "end_time": null,
     "updated_at": "2023-06-08T01:58:54.000000Z",
     "created_at": "2023-06-08T01:58:54.000000Z",
-    "id": 4
+    "id": 1
   }
 }
 ```
@@ -73,7 +74,7 @@ Dashboard of  Rehabilitation Robot
 
 #### Body (JSON Content)
 
-```
+```json
 {
   "data": [
     {
@@ -108,7 +109,7 @@ Dashboard of  Rehabilitation Robot
 
 #### Response 
 
-```
+```json
 {
   "success": true,
   "message": "Exercise details data added successfully",
@@ -158,7 +159,7 @@ Dashboard of  Rehabilitation Robot
 
 #### Body (JSON Content)
 
-```
+```json
 {
   "code": "RB001-001",
   "end_time": "2023-06-07 10:30:00",
@@ -168,7 +169,7 @@ Dashboard of  Rehabilitation Robot
 
 #### Response 
 
-```
+```json
 {
   "success": true,
   "message": "Exercise Data Updated Successfully",
