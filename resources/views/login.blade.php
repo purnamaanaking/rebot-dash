@@ -15,7 +15,7 @@
                     <div>
                         <img class="img-fluid" src="{{ Vite::asset('resources/images/login.png') }}" alt="Login Image">
                         <h1 class="">Re-Bot Dashboard</h1>
-                        <p class="text-secondary">Dashboard of Your Rehabilitation Robot V0</p>
+                        <p class="text-secondary">Dashboard of Your Rehabilitation Robot</p>
                     </div>
                     <div class="px-5 mt-3">
                         <div class="input-group mb-3">
